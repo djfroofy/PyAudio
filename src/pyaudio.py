@@ -104,9 +104,10 @@ import sys
 try:
     import _portaudio as pa
 except ImportError:
-    print "Please build and install the PortAudio Python " +\
-          "bindings first."
-    sys.exit(-1)
+    from warnings import warn
+    warn("Please build and install the PortAudio Python "
+         "bindings first.")
+    raise
 
 
 # Try to use Python 2.4's built in `set'
